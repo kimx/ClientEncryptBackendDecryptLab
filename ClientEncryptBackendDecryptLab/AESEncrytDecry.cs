@@ -11,16 +11,26 @@ namespace ClientEncryptBackendDecryptLab
 {
     public class AESEncrytDecry
     {
-
+        private static string privateKey = "8080808080808080";//max length 128bit=16byte=16 english word
         public static string DecryptStringAES(string cipherText)
         {
 
-            var keybytes = Encoding.UTF8.GetBytes("8080808080808080");
-            var iv = Encoding.UTF8.GetBytes("8080808080808080");
+            var keybytes = Encoding.UTF8.GetBytes(privateKey);
+            var iv = Encoding.UTF8.GetBytes(privateKey);
 
             var encrypted = Convert.FromBase64String(cipherText);
             var decriptedFromJavascript = DecryptStringFromBytes(encrypted, keybytes, iv);
             return string.Format(decriptedFromJavascript);
+        }
+
+        public static string EnryptStringAES(string plainText)
+        {
+
+            var keybytes = Encoding.UTF8.GetBytes(privateKey);
+            var iv = Encoding.UTF8.GetBytes(privateKey);
+            var bytes = EncryptStringToBytes(plainText, keybytes, iv);
+            var encrypted = Convert.ToBase64String(bytes);
+            return encrypted;
         }
 
         private static string DecryptStringFromBytes(byte[] cipherText, byte[] key, byte[] iv)
