@@ -19,7 +19,7 @@ namespace ClientEncryptBackendDecryptLab
             lblUserNameDecrypt.Text = AESEncrytDecry.DecryptStringAES(txtUserNameEncrypt.Text);
             lblEmailDecrypt.Text = AESEncrytDecry.DecryptStringAES(txtEmailEncrypt.Text);
             lblUserNameIsSame.Text = (txtUserName.Text == lblUserNameDecrypt.Text).ToString();
-            lblEmailDecrypt.Text = (txtEmail.Text == lblEmailDecrypt.Text).ToString();
+            lblEmailDecryptIsSame.Text = (txtEmail.Text == lblEmailDecrypt.Text).ToString();
 
         }
     }
